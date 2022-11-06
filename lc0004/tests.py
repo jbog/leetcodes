@@ -14,16 +14,19 @@ def test_compose_median_candidates():
     assert solution.compose_median_candidates(5, [1,2,2,3,3,3,3,4,5,5,5]) == [1,2,2,3,3,3,3,4,5,5,5]
     assert solution.compose_median_candidates(5, [6,7,8,9,9,9,10]) == []
     assert solution.compose_median_candidates(5, [5,5,5,6,7,8,9,9,9,10]) == [5,5,5]
+    assert solution.compose_median_candidates(4, [4,5,5,6,7,8,9,9,9,10]) == [4]
     assert solution.compose_median_candidates(0, []) == []
 
-def test_initialize_pos_candidate_median():
-    assert solution.initialize_pos_candidate_median(7, 1) == 6
-    assert solution.initialize_pos_candidate_median(7, 2) == 6
-    assert solution.initialize_pos_candidate_median(7, 3) == 5
-    assert solution.initialize_pos_candidate_median(7, 4) == 5
-    assert solution.initialize_pos_candidate_median(7, 5) == 4
-    assert solution.initialize_pos_candidate_median(7, 6) == 4
-    assert solution.initialize_pos_candidate_median(7, 7) == 3
+def test_determine_pos_candidate_median():
+    assert solution.determine_pos_candidate_median(0, 8) == 4
+    assert solution.determine_pos_candidate_median(0, 4) == 2
+    assert solution.determine_pos_candidate_median(2, 4) == 3
+    assert solution.determine_pos_candidate_median(3, 4) == 4
+    assert solution.determine_pos_candidate_median(4, 4) == 4
+    assert solution.determine_pos_candidate_median(4, 8) == 6
+    assert solution.determine_pos_candidate_median(6, 8) == 7
+    assert solution.determine_pos_candidate_median(8, 8) == 8
+    assert solution.determine_pos_candidate_median(1, 5) == 3
 
 def test_example1():
     assert solution.findMedianSortedArrays([1,3], [2]) == 2.0
